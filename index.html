@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="icon" href="./assets/logo.png" />
+  <title>MiniStore</title> 
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__bar">
+      <a class="brand" href="./index.html"><img height="100" src="./assets/logo.png" alt="Logo-miniStore"></a>
+      
+       <div class="container header__search">   
+      <input id="search" type="search" placeholder="Buscar" autocomplete="off" />
+    </div>
+    
+    <nav class="nav" aria-label="Principal">
+        <ul class="nav__list">
+            <li><a class="is-active" href="./index.html">Inicio</a></li>
+            <li><a href="./categories.html">Categorías</a></li>
+            <li><a href="./offers.html">Ofertas</a></li>
+            <li>
+                <a class="nav__cart" href="./cart.html" aria-label="Ir al carrito">
+                    Carrito </a>
+            </li>
+              <li>
+                <a class="nav__cart" href="./cart.html" aria-label="Ir al carrito">
+                    Aceder </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+</header>
+    <!-- Buscador global -->
+   
+
+  <!-- MAIN -->
+  <main id="home" class="main container">
+    <!-- Banner / hero (opcional) -->
+    <section class="hero" aria-label="Promoción destacada">
+      <div class="hero__banner">banner sutil</div>
+    </section>
+
+    <!-- Toolbar (opcional: filtros / orden) -->
+    <section class="toolbar" aria-label="Controles de listado">
+      <div class="toolbar__group">
+        <label for="sort" class="toolbar__label">Ordenar</label>
+        <select id="sort" name="sort">
+          <option value="default">Predeterminado</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="title-asc">Nombre: A–Z</option>
+        </select>
+      </div>
+      <div class="toolbar__group">
+        <label for="filter" class="toolbar__label">Categoría</label>
+        <select id="filter" name="filter">
+          <option value="all">Todas</option>
+          <!-- (cuando conectes JS, aquí insertarás categorías reales) -->
+        </select>
+      </div>
+    </section>
+
+    <!-- Grid de productos (JS inyectará tarjetas aquí) -->
+    <section aria-label="Listado de productos">
+      <div id="products" class="products-grid">
+        <!-- Tarjetas dinámicas -->
+        <!-- Ejemplo de placeholder (puedes dejarlo o quitarlo):
+        <article class="product-card is-skeleton"></article>
+        -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© 2025 MiniStore. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- JS principal (cuando lo hagas) -->
+  <script src="./js/app.js" defer></script>
+</body>
+</html>
