@@ -1,69 +1,36 @@
+// js/app.js
+// PARA QUÉ: conectar todo. Aquí “empieza” tu app.
 
-const API_URL = 'https://fakestoreapi.com/products';
-// console.log('uBICADA EN CONSOLA<')
-
-const state = {
-    products: [],
-    view: [],
-};
-
+import { fetchProducts } from './core/api.js';
+import { state, setProducts } from './core/state.js';
+import { showLoading, showError } from './ui/products.js';
+import { renderPage, registerPagerEvents } from './ui/pager.js';
 
 const $products = document.getElementById('products');
-const $search = document.getElementById('search');
-const $sort = document.getElementById('sort');
-const $filter = document.getElementById('filter');
+const $prev     = document.querySelector('.pass .back');
+const $next     = document.querySelector('.pass .Next');
+const $info     = document.getElementById('pager-info');
 
+async function init() {
+  // 1) Mensaje de carga
+  showLoading($products);
 
-function showLoading() {
-    $products.innerHTML = `<p style="padding:1rem;">Cargando productos…</p>`;
-}
-
-function showError(msg = 'Ocurrió un error al cargar los productos.') {
-    $products.innerHTML = `<p style="padding:1rem;color:#a33;">${msg}</p>`;
-}
-
-
-
-function renderProducts(list) {
-  if (!list.length) {
-    $products.innerHTML = `<p style="padding:1rem;">No hay productos para mostrar.</p>`;
-    return;
-  }
-
-
-  const html = list.map(p => `
-    <article class="product-card">
-      <img src="${p.image}" alt="${p.title}" loading="lazy">
-      <h3 title="${p.title}">${p.title}</h3>
-      <p>$ ${(p.price)} USD</p>
-      <div class="actions">
-        <button class="secondary" ><a  href="./product.html?id=${p.id}">Ver detalles</a></button>
-        <button data-id="${p.id}" class="add-to-cart">Agregar al carrito</button>
-      </div>
-    </article>
-  `).join('');
-
-  $products.innerHTML = html;
-}
-
-async function fetchProducts() {
   try {
-    showLoading();
-    const res = await fetch(API_URL);
-    if (!res.ok) throw new Error('Respuesta no válida de la API');
-    const data = await res.json();
+    // 2) Traer datos de la API
+    const data = await fetchProducts();
 
-    state.products = data;
-    state.view = data.slice();
+    // 3) Guardar en el estado (deja page = 1 y view = products)
+    setProducts(data);
 
-    // buildCategoryOptions(state.products);
-    renderProducts(state.view);
+    // 4) Registrar eventos de paginación
+    registerPagerEvents($products, $info, $prev, $next);
+
+    // 5) Pintar la primera página
+    renderPage($products, $info, $prev, $next);
   } catch (err) {
     console.error(err);
-    showError('No fue posible cargar los productos. Intenta de nuevo.');
+    showError($products);
   }
 }
- 
-document.addEventListener('DOMContentLoaded', () => {
-  fetchProducts();
-});
+
+document.addEventListener('DOMContentLoaded', init);
