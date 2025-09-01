@@ -1,0 +1,231 @@
+*{ 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    font-family: "Montserrat", sans-serif;
+}
+
+/* 🎨 Paleta de colores inspirada en tu tienda */
+:root {
+    --color-bg: #f6f1e7;      /* Fondo beige claro de la tienda */
+    --color-card: #fdfaf5;    /* Fondo blanco cálido de las tarjetas */
+    --color-primary: #a67b5b; /* Café medio de los botones */
+    --color-hover: #8c6b4f;   /* Café más oscuro para el hover */
+    --color-dark: #3e2d23;    /* Café oscuro para textos principales */
+    --color-border: #d6c5b4;  /* Borde suave y cálido */
+    --color-text-light: #f8f9fa; /* Texto claro (casi blanco) */
+}
+
+
+body {
+    background-color: var(--color-bg); /* Usamos el fondo de la tienda */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+.container-form{
+    max-width: 900px;
+    height: 500px;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    transition: all 0.5s ease;
+    margin: 20px;
+    background-color: var(--color-card); /* El contenedor principal usa el color de las tarjetas */
+}
+
+/* --- Panel Izquierdo: Bienvenida --- */
+.container-info{
+    background-color: var(--color-primary); /* Color principal de los botones */
+    width: 40%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.container-title{
+    width: 100%;
+    padding: 0 30px;
+}
+
+.container-title h1{
+    font-size: 2.5rem;
+    color: var(--color-text-light); /* Texto claro para contrastar */
+}
+
+.container-title p {
+    margin: 15px 0;
+    color: var(--color-text-light);
+}
+
+/* Botón "Registrarse" (Estilo secundario) */
+.container-title input{
+    background-color: transparent;
+    outline: none;
+    border: solid 2px var(--color-text-light) ;
+    color: var(--color-text-light);
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-weight: 600; /* Un poco más de peso */
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.container-title input:hover{
+    background-color: var(--color-text-light);
+    color: var(--color-primary);
+}
+
+/* --- Panel Derecho: Formulario de Login --- */
+.container-register{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    text-align: center;
+}
+
+.info-register{
+    padding: 0 40px;
+    width: 100%;
+}
+
+.info-register h1{
+    font-size: 2rem;
+    color: var(--color-dark); /* Texto oscuro sobre fondo claro */
+}
+
+.info-register p{
+    margin: 15px 0;
+    color: var(--color-primary); /* Color más suave para el texto secundario */
+}
+
+.items-icons{
+    margin: 15px 0;
+}
+
+.items-icons i{
+    border: solid 1.5px var(--color-border);
+    border-radius: 50%;
+    padding: 12px;
+    font-size: 1.2rem;
+    margin: 0 8px;
+    color: var(--color-primary); 
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.items-icons i:hover{
+    background-color: var(--color-primary);
+    color: var(--color-card);
+}
+
+.form {
+    margin-top: 25px;
+}
+
+/* Estilo para los campos de texto */
+.form label{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: solid 1.5px var(--color-border);
+    padding: 0 15px;
+    background-color: transparent;
+}
+
+.form label:focus-within { /* Resaltar el campo cuando está activo */
+    border-color: var(--color-primary);
+}
+
+.form label input{
+    width: 100%;
+    padding: 12px 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--color-dark);
+    font-size: 1rem;
+}
+
+.form label input::placeholder{
+    color: var(--color-border);
+}
+
+.form label i {
+    color: var(--color-primary);
+    margin-right: 8px;
+}
+
+/* --- Botones inferiores --- */
+.button-bottom{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 20px;
+}
+
+.button-bottom a{
+    text-decoration: none;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+}
+
+/* Botón principal para "Ingresar" Y "Registrarse" */
+.button-bottom .button,
+.form > .button { 
+    background-color: var(--color-primary);
+    outline: none;
+    border: none;
+    color: var(--color-text-light);
+    padding: 12px 30px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    width: fit-content; 
+    cursor: pointer;
+    transition: background-color .3s ease;
+    text-decoration: none; 
+    display: inline-block; 
+}
+
+/* Hover para "Ingresar" Y "Registrarse" */
+.button-bottom .button:hover,
+.form > .button:hover { 
+    background-color: var(--color-hover);
+}
+
+
+/* --- Responsive Design --- */
+@media screen and (max-width: 768px) {
+    body {
+        height: auto;
+        padding: 20px 0;
+    }
+    
+    .container-form {
+        flex-direction: column; 
+        height: auto;          
+        width: 90%;            
+        max-width: 450px;       
+    }
+
+    .container-info {
+        width: 100%; 
+        padding: 30px 20px;
+        border-radius: 20px 20px 0 0; /* Bordes superiores redondeados */
+    }
+
+    .container-register {
+        width: 100%; 
+        padding: 30px 20px;
+        border-radius: 0 0 20px 20px; /* Bordes inferiores redondeados */
+    }
+}
