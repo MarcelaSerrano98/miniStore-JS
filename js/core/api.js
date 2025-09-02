@@ -8,16 +8,18 @@ export async function fetchProducts() {
   return res.json();
 }
 
-// export async function fetchProductsByCategory(category) {
-//     const res = await fetch(`${API_URL}/category/${category}`);
-//     if (!res.ok) throw new Error('Error al cargar la categoría');
-//     return res.json();
-// }
-// export async function fetchCategories() {
-//     const response = await fetch(`${API_URL}/categories`);
-//     if (!response.ok) {
-//         throw new Error('No se pudieron cargar las categorías desde la API.');
-//     }
-//     return response.json();
-// }
+
+// === AÑADE ESTA NUEVA FUNCIÓN ===
+/**
+ * Obtiene todos los productos y los filtra para devolver solo los que
+ * tienen una calificación mayor a 4.0.
+ */
+export async function fetchFavoriteProducts() {
+  // 1. Obtenemos todos los productos
+  const allProducts = await fetchProducts();
+
+  // 2. Filtramos por la calificación (rating.rate)
+  const favoriteProducts = allProducts.filter(p => p.rating && p.rating.rate > 4 );
+  return favoriteProducts;
+}
 

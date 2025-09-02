@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,23 +14,28 @@
         <div class="container header__bar">
             <a class="brand" href="./index.html"><img height="100" src="./assets/logo.png" alt="Logo-miniStore"></a>
 
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
+            <label for="menu-toggle" class="menu-button" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </label>
             <div class="container header__search">
                 <input id="search" type="search" placeholder="Buscar" autocomplete="off" />
             </div>
 
-            <nav class="nav" aria-label="Principal">
-                <ul class="nav__list">
-                    <li><a class="is-active" href="./index.html">Inicio</a></li>
-                    <li><a href="./categories.html">Favoritos</a></li>
-                    <li><a href="./offers.html">Ofertas</a></li>
-                    <li>
-                        <a class="nav__cart" href="./cart.html" aria-label="Ir al carrito">
-                            Carrito </a>
-                    </li>
-                    <li><a href="./auth.html">Acceder</a></li>
-                </ul>
-
-            </nav>
+            <div class="nav-wrapper">
+                <nav class="nav" aria-label="Principal">
+                    <ul class="nav__list">
+                        <li><a class="is-active" href="./index.html">Inicio</a></li>
+                        <li><a href="./favorites.html">Favoritos</a></li>
+                        <li><a href="./offers.html">Ofertas</a></li>
+                        <li>
+                            <a class="nav__cart" href="./cart.html" aria-label="Ir al carrito">
+                                Carrito </a>
+                        </li>
+                        <li><a href="./auth.html">Acceder</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 

@@ -313,16 +313,28 @@ button.secondary:hover {
   animation: toast-in .2s ease-out;
 }
 
-.toast--success { border-color: #5cb85c; }
-.toast--error   { border-color: #d9534f; }
+.toast--success { 
+  border-color: #5cb85c; 
+}
+.toast--error   { 
+  border-color: #d9534f; 
+}
+
+/* Estilo para la calificación en las tarjetas de producto */
+.product-card__rating {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-primary); /* Usa el color café medio de tu paleta */
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem; /* Espacio entre la estrella y el texto */
+}
 
 @keyframes toast-in {
   from { transform: translateY(8px); opacity: 0; }
   to   { transform: translateY(0);  opacity: 1; }
 }
-
-
-
 .modal-detail {
   position: fixed;
   inset: 0;
@@ -366,3 +378,134 @@ button.secondary:hover {
 }
 .detail-left img { width: 100%; height: auto; border-radius: 8px; }
 @media (max-width: 700px) { .modal-body { grid-template-columns: 1fr; } }
+
+
+/* ================================
+   📱 Estilos Responsivos (Móvil)
+================================== */
+@media (max-width: 800px) {
+
+    /* --- AJUSTES GENERALES --- */
+    .container {
+        width: 95%;
+    }
+
+    .header__bar {
+        flex-wrap: wrap; /* Permite que los elementos se reorganicen */
+        padding: 1rem 0;
+        position: relative; /* Necesario para posicionar el botón del menú */
+    }
+    
+    .brand {
+        /* El logo ocupa el espacio inicial */
+        flex-grow: 1;
+    }
+
+    .header__search {
+        /* El buscador ocupa todo el ancho en una nueva línea */
+        width: 100%;
+        order: 3; /* Lo mandamos al final */
+        margin-top: 1rem;
+    }
+
+    #search {
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* --- LÓGICA DEL MENÚ HAMBURGUESA --- */
+
+    /* 1. Ocultamos el checkbox */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* 2. Estilo del botón hamburguesa (el label) */
+    .menu-button {
+        display: flex; /* Se mostrará solo en móvil */
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        position: absolute; /* Lo posicionamos en la esquina superior derecha */
+        top: 1rem;
+        right: 0;
+        z-index: 2000;
+    }
+    
+    /* Las 3 líneas del icono */
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        display: block;
+        background-color: var(--color-dark);
+        position: absolute;
+        height: 3px;
+        width: 25px;
+        border-radius: 3px;
+        transition: transform 0.3s ease;
+    }
+
+    .hamburger::before {
+        transform: translateY(-8px);
+    }
+
+    .hamburger::after {
+        transform: translateY(8px);
+    }
+    
+    /* Animación del botón a una 'X' cuando el menú está abierto */
+    #menu-toggle:checked + .menu-button .hamburger {
+        transform: rotate(45deg);
+    }
+    #menu-toggle:checked + .menu-button .hamburger::before {
+        transform: rotate(90deg) translate(0, 0);
+    }
+    #menu-toggle:checked + .menu-button .hamburger::after {
+        transform: rotate(90deg) translate(0, 0);
+        opacity: 0; /* Ocultamos la línea de abajo para formar la X */
+    }
+
+    /* 3. El menú de navegación (inicialmente oculto) */
+    .nav-wrapper {
+        position: fixed; /* Ocupa toda la pantalla y se superpone */
+        top: 0;
+        right: -100%; /* Inicia fuera de la pantalla a la derecha */
+        width: 280px; /* Ancho del menú desplegado */
+        height: 100%;
+        background-color: var(--color-card);
+        box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+        padding: 6rem 2rem 2rem;
+        transition: right 0.4s ease;
+        z-index: 1000;
+    }
+    
+    /* Cuando el checkbox está activo, el menú se desliza a la vista */
+    #menu-toggle:checked ~ .nav-wrapper {
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        align-items: flex-start; /* Alineamos los links a la izquierda */
+        gap: 1.5rem;
+    }
+    .pass {
+        display: flex;
+        justify-content: space-between; /* Distribuye los elementos: uno a la izq, uno al centro y uno a la der */
+        align-items: center;
+        gap: 0.5rem; /* Un espacio más pequeño para móviles */
+    }
+
+    .pass button {
+        flex-grow: 1; /* Permite que los botones crezcan para ser más fáciles de tocar */
+        text-align: center; /* Centra el texto dentro de los botones */
+        max-width: 40%; /* Evita que los botones sean excesivamente grandes */
+    }
+
+    #pager-info {
+        flex-shrink: 0; /* Evita que el texto de la página se encoja */
+    }
+}
