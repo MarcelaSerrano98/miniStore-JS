@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./assets/logo.png" />
+    <title>MiniStore - Favoritos</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__bar">
+            <a class="brand" href="./index.html"><img height="100" src="./assets/logo.png" alt="Logo-miniStore"></a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
+            <label for="menu-toggle" class="menu-button" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </label>
+            <div class="container header__search">
+                <input id="search" type="search" placeholder="Buscar" autocomplete="off" />
+            </div>
+
+            <div class="nav-wrapper">
+                <nav class="nav" aria-label="Principal">
+                    <ul class="nav__list">
+                        <li><a href="./index.html">Inicio</a></li>
+                        <li><a class="is-active" href="./favorites.html">Favoritos</a></li>
+                        <li><a href="./offers.html">Ofertas</a></li>
+                        <li>
+                            <a class="nav__cart" href="./cart.html" aria-label="Ir al carrito">
+                                Carrito </a>
+                        </li>
+                        <li><a href="./auth.html">Acceder</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="favorites-page" class="main container">
+        <h1 style="margin: 1.5rem 0;">Productos Favoritos</h1>
+        <p style="margin-bottom: 1.5rem;">Una selección de nuestros productos mejor calificados por los clientes.</p>
+
+        <section aria-label="Listado de productos favoritos">
+            <div id="products" class="products-grid">
+                </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <small>© 2025 MiniStore. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+    
+    <div id="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+    <script type="module" src="./js/ui/favorites.js"></script>
+</body>
+
+</html>
