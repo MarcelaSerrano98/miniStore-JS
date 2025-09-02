@@ -5,6 +5,7 @@ import { fetchProducts, fetchProductsByCategory } from './core/api.js';
 import { state, setProducts } from './core/state.js';
 import { showLoading, showError } from './ui/products.js';
 import { renderPage, registerPagerEvents } from './ui/pager.js';
+import { registerEvents } from './ui/events.js';
 
 const $products = document.getElementById('products');
 const $prev     = document.querySelector('.pass .back');
@@ -12,11 +13,14 @@ const $next     = document.querySelector('.pass .Next');
 const $info     = document.getElementById('pager-info');
 
 async function init() {
+
+   
   // 1) Mensaje de carga
   showLoading($products);
   console.log('Iniciando la aplicación...');
 
   try {
+    
     // 2) Traer datos de la API
     // const data = await fetchProducts();
         const params = new URLSearchParams(window.location.search);
@@ -48,4 +52,8 @@ async function init() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', init);
+// document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', () => {
+  init()
+  registerEvents();
+});

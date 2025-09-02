@@ -28,10 +28,7 @@
                         <a class="nav__cart" href="./cart.html" aria-label="Ir al carrito">
                             Carrito </a>
                     </li>
-                    <select class="sesion" name="acceder" id="">
-                        <option value="">Iniciar Sesion</option>
-                        <option value="">Registrarse</option>
-                    </select>
+                    <li><a href="./auth.html">Acceder</a></li>
                 </ul>
 
             </nav>
@@ -43,23 +40,23 @@
     <main id="home" class="main container">
         <!-- Banner / hero (opcional) -->
         <section class="hero" aria-label="Promoción destacada">
-        
-        <!-- AQUÍ COMIENZA EL BANNER -->
-        <div class="discount-banner">
-            <div class="icon-container">
-              <span class="icon cart-icon"></span>
+
+            <!-- AQUÍ COMIENZA EL BANNER -->
+            <div class="discount-banner">
+                <div class="icon-container">
+                    <span class="icon cart-icon"></span>
+                </div>
+                <div class="text-container">
+                    <p class="main-text">¡TODA LA TIENDA CON 30% DE DESCUENTO!</p>
+                    <p class="sub-text">¡Aprovecha nuestras ofertas por tiempo limitado!</p>
+                </div>
+                <div class="icon-container">
+                    <span class="icon gift-icon"></span>
+                </div>
             </div>
-            <div class="text-container">
-              <p class="main-text">¡TODA LA TIENDA CON 30% DE DESCUENTO!</p>
-              <p class="sub-text">¡Aprovecha nuestras ofertas por tiempo limitado!</p>
-            </div>
-            <div class="icon-container">
-              <span class="icon gift-icon"></span>
-            </div>
-        </div>
-        <!-- AQUÍ TERMINA EL BANNER -->
-      
-    </section>
+            <!-- AQUÍ TERMINA EL BANNER -->
+
+        </section>
 
         <!-- Toolbar (opcional: filtros / orden) -->
         <section class="toolbar" aria-label="Controles de listado">
@@ -70,6 +67,7 @@
                     <option value="price-asc">Precio: menor a mayor</option>
                     <option value="price-desc">Precio: mayor a menor</option>
                     <option value="title-asc">Nombre: A–Z</option>
+                    <option value="title-desc">Nombre: Z–A</option>
                 </select>
             </div>
             <div class="toolbar__group">
@@ -84,7 +82,7 @@
         <section aria-label="Listado de productos">
             <div id="products" class="products-grid">
                 <!-- Tarjetas dinámicas -->
-           
+
             </div>
         </section>
 
@@ -100,6 +98,8 @@
             <small>© 2025 MiniStore. Todos los derechos reservados.</small>
         </div>
     </footer>
+    <!-- Toaster -->
+    <div id="toast-root" aria-live="polite" aria-atomic="true"></div>
 
     <!-- JS principal (cuando lo hagas) -->
     <script type="module" src="./js/app.js"></script>
