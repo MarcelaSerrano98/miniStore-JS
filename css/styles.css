@@ -356,3 +356,48 @@ button.secondary:hover {
   to   { transform: translateY(0);  opacity: 1; }
 }
 
+
+
+.modal-detail {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* gap: 200px; */
+  z-index: 9999;
+}
+.modal-content {
+  background: var(--color-card);
+  width: min(90%, 760px);
+  /* height: 70%; */
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(177, 174, 174, 0.5);
+}
+.modal-close {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  border: none;
+  background: transparent;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+}
+.detail-right{
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+}
+.detail-title{
+  font-size: 30px;
+}
+.detail-left img { width: 100%; height: auto; border-radius: 8px; }
+@media (max-width: 700px) { .modal-body { grid-template-columns: 1fr; } }

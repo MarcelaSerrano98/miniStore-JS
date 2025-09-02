@@ -34,6 +34,7 @@ async function init() {
     registerFilters({ $sort, $products, $info, $prev,$next });
     registerPagerEvents($products, $info, $prev, $next);
 
+
     // 5) Pintar la primera página
     renderPage($products, $info, $prev, $next);
   } catch (err) {
@@ -46,4 +47,5 @@ async function init() {
 document.addEventListener('DOMContentLoaded', () => {
   init()
   registerEvents();
+
 });
