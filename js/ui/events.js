@@ -10,5 +10,4 @@ export function registerEvents() {
       showToast('Producto agregado al 🛒 con exito ✔️');
     }
   });
-
 }
