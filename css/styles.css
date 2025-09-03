@@ -64,6 +64,10 @@ body {
   text-decoration: none;
 }
 
+.nav{
+  width: 325px;
+}
+
 .nav__list {
   display: flex;
   gap: 1.5rem;
