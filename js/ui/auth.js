@@ -12,10 +12,6 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
-
-// --- LÓGICA DE REGISTRO Y LOGIN CON LOCALSTORAGE ---
-
-// Selectores de los formularios y campos de texto
 const registerForm = document.getElementById('register-form');
 const loginForm = document.getElementById('login-form');
 

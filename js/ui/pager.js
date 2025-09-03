@@ -1,6 +1,3 @@
-// js/ui/pager.js
-// PARA QUÉ: manejar el cambio de página y actualizar el UI de paginación.
-
 import { state, totalPages, pageSlice } from '../core/state.js';
 import { renderProducts } from './products.js';
 
