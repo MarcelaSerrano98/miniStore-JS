@@ -1,5 +1,3 @@
-// js/core/state.js
-// PARA QUÉ: guardar datos de la app en un solo lugar.
 
 export const state = {
   products: [],  // todos los productos de la API

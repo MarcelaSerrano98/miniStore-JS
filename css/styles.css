@@ -271,8 +271,7 @@ button.secondary:hover {
   font-size: 0.9rem;
 }
 /* ================================
-   🔹 Banner de Descuento
-   (Añadir al final de styles.css)
+    Banner MINISTORE
 ================================== */
 .hero{
   height: 14rem;
@@ -290,7 +289,9 @@ button.secondary:hover {
 }
 
 
-
+/* ================================
+  TOAST
+================================== */
 #toast-root {
   position: fixed;
   left: 2rem;
@@ -362,6 +363,10 @@ button.secondary:hover {
   background: transparent;
   font-size: 1.25rem;
   cursor: pointer;
+}
+.modal-close:hover {
+  border: 1px solid var(--color-border);
+  background: transparent;
 }
 .modal-body {
   display: grid;

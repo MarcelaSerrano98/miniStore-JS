@@ -5,8 +5,10 @@ import { fetchProducts } from './core/api.js';
 import { state, setProducts } from './core/state.js';
 import { showLoading, showError } from './ui/products.js';
 import { renderPage, registerPagerEvents } from './ui/pager.js';
-import { registerEvents } from './ui/events.js';
+// import { registerEvents } from './ui/events.js';
 import { registerFilters, registerCategoryFilters } from './ui/filters.js';
+import { registerEventsToast } from './ui/toast.js';
+import { registerEventsDetails } from './ui/details.js';
 
 const $products = document.getElementById('products');
 const $prev = document.querySelector('.pass .back');
@@ -46,6 +48,7 @@ async function init() {
 // document.addEventListener('DOMContentLoaded', init);
 document.addEventListener('DOMContentLoaded', () => {
   init()
-  registerEvents();
+  registerEventsToast();
+  registerEventsDetails()
 
 });

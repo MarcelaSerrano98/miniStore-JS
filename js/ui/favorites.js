@@ -1,12 +1,11 @@
 // js/favorites.js
 
 import { fetchFavoriteProducts } from '../core/api.js';
-// Ya no importamos renderProducts, solo las funciones de carga y error
 import { showLoading, showError } from './products.js';
-import { registerEvents } from './events.js';
+import { registerEventsDetails } from './details.js';
+import { setProducts } from '../core/state.js';
 
 const $products = document.getElementById('products');
-
 
 function renderFavoriteProducts($container, list) {
   if (!$container) return;
@@ -41,10 +40,9 @@ async function initFavorites() {
   console.log('Iniciando la página de favoritos...');
 
   try {
-    // 2. Llamamos a la función de la API
-    const favoriteProducts = await fetchFavoriteProducts();
 
-    // 3. Usamos la nueva función local para pintar los favoritos
+    const favoriteProducts = await fetchFavoriteProducts();
+    setProducts(favoriteProducts);
     renderFavoriteProducts($products, favoriteProducts);
 
   } catch (err) {
@@ -56,5 +54,5 @@ async function initFavorites() {
 // Inicia la carga de la página y registra los eventos
 document.addEventListener('DOMContentLoaded', () => {
   initFavorites();
-  registerEvents();
+  registerEventsDetails();
 });

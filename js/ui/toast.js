@@ -1,6 +1,3 @@
-// js/ui/toast.js
-// Muestra una ventanita flotante (toast) y la cierra sola.
-
 export function showToast(message, { type = 'success', timeout = 2000 } = {}) {
   const root = document.getElementById('toast-root');
   if (!root) return;
@@ -26,4 +23,16 @@ export function showToast(message, { type = 'success', timeout = 2000 } = {}) {
     setTimeout(() => el.remove(), 160);
   }
 }
+
+export function registerEventsToast() {
+  const productsEl = document.getElementById('products');
+
+  // Evento para botones de agregar al carrito
+  productsEl.addEventListener('click', (e) => {
+    const btnAdd = e.target.closest('.add-to-cart');
+    if (btnAdd) {
+      showToast('Producto agregado al 🛒 con exito ✔️');
+    }
     
+  })
+}
