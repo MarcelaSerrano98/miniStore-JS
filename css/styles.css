@@ -382,6 +382,130 @@ button.secondary:hover {
   font-size: 30px;
 }
 .detail-left img { width: 100%; height: auto; border-radius: 8px; }
+
+/* Estilos para el carrito de compra */
+/* ========================
+   Tabla del carrito
+   ======================== */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  background: var(--color-card);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cart-table th {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.cart-table tr:nth-child(even) {
+  background: #f9f6f2; /* fila alterna */
+}
+
+/* Campo de cantidad */
+.cart-qty {
+  width: 60px;
+  padding: .4rem;
+  text-align: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+/* ========================
+   Botones del carrito
+   ======================== */
+.btn-edit {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: .4rem .7rem;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.btn-edit:hover {
+  background: var(--color-hover);
+}
+
+.btn-remove {
+  background: #d9534f;
+  color: #fff;
+  border-radius: var(--radius);
+  padding: .4rem .7rem;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.btn-remove:hover {
+  background: #c9302c;
+}
+
+.btn-qty {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 80px;
+  width: 0px;
+  height: 35px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.minus{
+  width: 0px;
+}
+
+.btn-qty:hover {
+  background: var(--color-hover);
+}
+
+.amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.qty-number {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ========================
+   Resumen del carrito
+   ======================== */
+.cart-summary {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  box-shadow: var(--shadow);
+  max-width: 350px;
+}
+
+.cart-summary p {
+  margin: .5rem 0;
+  font-size: 1rem;
+}
+
+
+
 @media (max-width: 700px) { .modal-body { grid-template-columns: 1fr; } }
 
 

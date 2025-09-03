@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Carrito de compras</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__bar">
+            <a class="brand" href="./index.html"><img height="100" src="./assets/logo.png" alt="Logo-miniStore"></a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
+            <label for="menu-toggle" class="menu-button" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </label>
+            <div class="container header__search">
+                <input id="search" type="search" placeholder="Buscar" autocomplete="off" />
+            </div>
+
+            <div class="nav-wrapper">
+                <nav class="nav" aria-label="Principal">
+                    <ul class="nav__list">
+                        <li><a class="is-active" href="./index.html">Inicio</a></li>
+                        <li><a href="./favorites.html">Favoritos</a></li>
+                        <li>
+                            <a class="nav__cart" href="./cart.html" aria-label="Ir al carrito">
+                                Carrito </a>
+                        </li>
+                        <li><a href="./auth.html">Acceder</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container">
+        <h1>🛒 Tu Carrito</h1>
+
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="cart-body">
+                <!-- Ejemplo de fila -->
+                <tr>
+                    <td class="name-product">Camisa básica</td>
+                    <td class="amount">
+                        <button class="btn-qty minus">-</button>
+                        <span class="qty-number">2</span>
+                        <button class="btn-qty plus">+</button>
+                    </td>
+                    <td class="price">$15.00</td>
+                    <td class="total">$30.00</td>
+                    <td>
+                        <button class="btn-edit">✏️ Editar</button>
+                        <button class="btn-remove">❌ Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Resumen -->
+        <section class="cart-summary">
+            <p>Total de productos: <span id="total-items">2</span></p>
+            <p>Total a pagar: <strong id="total-price">$30.00</strong></p>
+            <button class="btn btn--primary">Finalizar compra</button>
+        </section>
+    </main>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <small>© 2025 MiniStore. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
