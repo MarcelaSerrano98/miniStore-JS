@@ -29,32 +29,39 @@ export function registerEventsToast() {
   const productsEl = document.getElementById('products');
 
   // Evento para botones de agregar al carrito
-  productsEl.addEventListener('click', (e) => {
-    const btnAdd = e.target.closest('.add-to-cart');
-    if (btnAdd) {
-      showToast('Producto agregado al 🛒 con exito ✔️');
-    }
-  })
+  // productsEl.addEventListener('click', (e) => {
+  //   const btnAdd = e.target.closest('.add-to-cart');
+  //   if (btnAdd) {
+  //     showToast('Producto agregado al 🛒 con exito ✔️');
+  //   }
+  // })
 
   document.getElementById('products').addEventListener('click', (e) => {
-  const btn = e.target.closest('.add-to-cart');
-  if (!btn) return;
+    const btn = e.target.closest('.add-to-cart');
+    if (!btn) return;
 
-  const card = btn.closest('.product-card');
-  const product = {
-    id: Number(btn.dataset.id),
-    title: card.querySelector('h3').textContent,
-    price: Number(card.querySelector('.price').dataset.price),
-    image: card.querySelector('img').src,
-    qty: 1
-  };
-  console.log(product)
+    const card = btn.closest('.product-card');
+    const product = {
+      id: Number(btn.dataset.id),
+      title: card.querySelector('h3').textContent,
+      price: Number(card.querySelector('.price').dataset.price),
+      image: card.querySelector('img').src,
+      qty: 1
+    };
 
-  // Guardar en localStorage
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  cart.push(product);
-  localStorage.setItem('cart', JSON.stringify(cart));
+    // Guardar en localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const index = cart.findIndex(item => Number(item.id) === product.id);
 
-  alert("Producto agregado al carrito 🛒");
-});
+    if (index >= 0) {
+      cart[index].qty = (cart[index].qty || 1) + 1;
+      alert('Este producto ya estaba en el carrito, se aumentó la cantidad.');
+    } else {
+      cart.push(product);
+      alert("Producto agregado al carrito 🛒");
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+
+  });
 }
