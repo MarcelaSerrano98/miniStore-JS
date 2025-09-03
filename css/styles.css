@@ -384,9 +384,6 @@ button.secondary:hover {
 .detail-left img { width: 100%; height: auto; border-radius: 8px; }
 
 /* Estilos para el carrito de compra */
-/* ========================
-   Tabla del carrito
-   ======================== */
 .cart-table {
   width: 100%;
   border-collapse: collapse;
@@ -414,7 +411,6 @@ button.secondary:hover {
   background: #f9f6f2; /* fila alterna */
 }
 
-/* Campo de cantidad */
 .cart-qty {
   width: 60px;
   padding: .4rem;
@@ -422,11 +418,8 @@ button.secondary:hover {
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
 }
-
-/* ========================
-   Botones del carrito
-   ======================== */
-.btn-edit {
+/* botones */
+/* .btn-edit {
   background: var(--color-primary);
   color: #fff;
   border-radius: var(--radius);
@@ -438,7 +431,7 @@ button.secondary:hover {
 
 .btn-edit:hover {
   background: var(--color-hover);
-}
+} */
 
 .btn-remove {
   background: #d9534f;
@@ -448,30 +441,30 @@ button.secondary:hover {
   font-size: .9rem;
   cursor: pointer;
   transition: background .2s ease;
+  /* width: 20px; */
 }
 
 .btn-remove:hover {
   background: #c9302c;
 }
 
-.btn-qty {
-  background: var(--color-primary);
-  color: #fff;
-  border: none;
-  border-radius: 80px;
-  width: 0px;
-  height: 35px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background .2s ease;
-}
+  .btn-number {
+    background: transparent;
+    color: var(--color-dark);
+    border: solid 1px var(--color-border);
+    border-radius: 80px;
+    width: 50px;
+    height: 35px;
+    font-size: 1rem;
+  padding: .4rem .25rem;
 
-.minus{
-  width: 0px;
-}
+    cursor: pointer;
+    transition: background .2s ease;
+  }
 
-.btn-qty:hover {
+.btn-number:hover {
   background: var(--color-hover);
+  color: #fff;
 }
 
 .amount {

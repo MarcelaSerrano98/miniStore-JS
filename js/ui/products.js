@@ -1,4 +1,5 @@
-
+// js/ui/products.js
+// PARA QUÉ: dibujar tarjetas de productos en el HTML.
 
 export function showLoading($container) {
   if ($container) $container.innerHTML = `<p style="padding:1rem;">Cargando productos…</p>`;
@@ -16,11 +17,13 @@ export function renderProducts($container, list) {
     return;
   }
 
-  const html = list.map(p => `
+
+
+  const html = list.map(p =>`
     <article class="product-card">
       <img src="${p.image}" alt="${p.title}" loading="lazy">
       <h3 title="${p.title}">${p.title}</h3>
-      <p>$ ${p.price} USD</p>
+      <p class="price" data-price="${p.price}">$ ${p.price} USD</p>
       <div class="actions">
         <button class="secondary see-details" data-id="${p.id}">Ver detalles</button>
         <button class="add-to-cart" data-id="${p.id}">Agregar al carrito</button>

@@ -1,3 +1,5 @@
+// import { pageSlice } from "../core/state";
+
 export function showToast(message, { type = 'success', timeout = 2000 } = {}) {
   const root = document.getElementById('toast-root');
   if (!root) return;
@@ -23,7 +25,6 @@ export function showToast(message, { type = 'success', timeout = 2000 } = {}) {
     setTimeout(() => el.remove(), 160);
   }
 }
-
 export function registerEventsToast() {
   const productsEl = document.getElementById('products');
 
@@ -33,6 +34,27 @@ export function registerEventsToast() {
     if (btnAdd) {
       showToast('Producto agregado al 🛒 con exito ✔️');
     }
-    
   })
+
+  document.getElementById('products').addEventListener('click', (e) => {
+  const btn = e.target.closest('.add-to-cart');
+  if (!btn) return;
+
+  const card = btn.closest('.product-card');
+  const product = {
+    id: Number(btn.dataset.id),
+    title: card.querySelector('h3').textContent,
+    price: Number(card.querySelector('.price').dataset.price),
+    image: card.querySelector('img').src,
+    qty: 1
+  };
+  console.log(product)
+
+  // Guardar en localStorage
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(product);
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  alert("Producto agregado al carrito 🛒");
+});
 }

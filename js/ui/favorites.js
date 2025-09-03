@@ -19,7 +19,8 @@ function renderFavoriteProducts($container, list) {
     <article class="product-card">
       <img src="${p.image}" alt="${p.title}" loading="lazy">
       <h3 title="${p.title}">${p.title}</h3>
-      <p>$ ${p.price} USD</p>
+      <p class="price" data-price="${p.price}">$ ${p.price} USD</p>
+
       
       <p class="product-card__rating">⭐ ${p.rating.rate} (${p.rating.count} opiniones)</p>
       
