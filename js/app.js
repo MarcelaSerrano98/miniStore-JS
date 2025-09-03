@@ -9,6 +9,7 @@ import { renderPage, registerPagerEvents } from './ui/pager.js';
 import { registerFilters, registerCategoryFilters } from './ui/filters.js';
 import { registerEventsToast } from './ui/toast.js';
 import { registerEventsDetails } from './ui/details.js';
+import { registerSearchEvents } from './ui/search.js';
 
 const $products = document.getElementById('products');
 const $prev = document.querySelector('.pass .back');
@@ -49,6 +50,7 @@ async function init() {
 document.addEventListener('DOMContentLoaded', () => {
   init()
   registerEventsToast();
-  registerEventsDetails()
+  registerEventsDetails();
+  registerSearchEvents();
 
 });
