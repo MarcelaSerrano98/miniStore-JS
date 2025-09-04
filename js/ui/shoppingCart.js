@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cart = getCart();
 
         const totalPirce = cart.reduce((acc, item) => acc + (item.price * (item.qty || 1) || 1), 0);
-        document.getElementById('total-price').textContent = Math.round(totalPirce)
+        document.getElementById('total-price').textContent = `$ ${totalPirce} (USD)`
     }
 
     function calcTotals(cart) {
