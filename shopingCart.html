@@ -1,77 +1,81 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" href="./assets/logo.png" />
 
-        <title>Carrito de compras</title>
-    </head>
+    <title>Carrito de compras</title>
+</head>
 
-    <body>
-        <header class="header">
-            <div class="container header__bar">
-                <a class="brand" href="./index.html"><img height="100" src="./assets/logo.png" alt="Logo-miniStore"></a>
+<body>
+    <header class="header">
+        <div class="container header__bar">
+            <a class="brand" href="./index.html"><img height="100" src="./assets/logo.png" alt="Logo-miniStore"></a>
 
-                <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
-                <label for="menu-toggle" class="menu-button" aria-label="Abrir menú">
-                    <span class="hamburger"></span>
-                </label>
-                <div class="container header__search">
-                    <input id="search" type="search" placeholder="Buscar" autocomplete="off" />
-                </div>
-
-                <div class="nav-wrapper">
-                    <nav class="nav" aria-label="Principal">
-                        <ul class="nav__list">
-                            <li><a class="is-active" href="./index.html">Inicio</a></li>
-                            <li><a href="./favorites.html">Favoritos</a></li>
-                            <li><a class="is-active" href="./cart.html" aria-label="Ir al carrito">Carrito </a> </li>
-                            <li id="nav-auth-link"><a href="./auth.html">Acceder</a></li>
-                        </ul>
-                    </nav>
-                </div>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
+            <label for="menu-toggle" class="menu-button" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </label>
+            <div class="container header__search">
+                <input id="search" type="search" placeholder="Buscar" autocomplete="off" />
             </div>
-        </header>
 
-
-        <main class="container">
-            <h1>🛒 Tu Carrito</h1>
-
-            <table class="cart-table">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th>Precio</th>
-                        <th>Total</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="cart-body">
-                </tbody>
-            </table>
-
-            <section class="cart-summary">
-                <p>Total de productos: <span id="total-items"></span></p>
-                <p>Total a pagar: <strong id="total-price">$30.00</strong></p>
-                <button class="btn btn--primary">Finalizar compra</button>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <div class="container">
-                <small>© 2025 MiniStore. Todos los derechos reservados.</small>
+            <div class="nav-wrapper">
+                <nav class="nav" aria-label="Principal">
+                    <ul class="nav__list">
+                        <li><a class="is-active" href="./index.html">Inicio</a></li>
+                        <li><a href="./favorites.html">Favoritos</a></li>
+                        <li><a class="is-active" href="./cart.html" aria-label="Ir al carrito">Carrito </a> </li>
+                        <li id="nav-auth-link"><a href="./auth.html">Acceder</a></li>
+                    </ul>
+                </nav>
             </div>
-        </footer>
-
-        <script type="module" src="./js/ui/shoppingCart.js"></script>
-        <script src="./js/ui/share.js"></script> </body>
+        </div>
+    </header>
 
 
+    <main class="container">
+        <h1>🛒 Tu Carrito</h1>
 
-    </body>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="cart-body">
+            </tbody>
+        </table>
 
-    </html>
+        <section id="cart-summary" class="cart-summary">
+            <p>Total de productos: <span id="total-items"></span></p>
+            <p>Total a pagar: <strong id="total-price"></strong></p>
+            <button class="btn btn--primary">Finalizar compra</button>
+        </section>
+        <div id="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <small>© 2025 MiniStore. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+
+
+    <script type="module" src="./js/ui/shoppingCart.js"></script>
+    <script src="./js/ui/share.js"></script>
+</body>
+
+
+
+</body>
+
+</html>
