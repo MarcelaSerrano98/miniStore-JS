@@ -1,4 +1,4 @@
-
+// import {  } from "../";
 document.addEventListener('DOMContentLoaded', () => {
 
     const KEY = 'cart';
@@ -181,6 +181,12 @@ function finishPurchase() {
     if (!btnFinish) return;
     // showToast('Compra 🛒 registrada ✔️', { type: 'success' });
     finishPurchase();
+  });
+
+    summarySection.addEventListener('click', (e) => {
+    const btnHistorial = e.target.closest('.btn-historial'); // tu botón
+    if (!btnHistorial) return;
+    window.location.href = './historial.html';
   });
   render();
 }); 

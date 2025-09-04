@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="./assets/logo.png" />
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/historial.css">
+  <title>Historial de compras</title>
+</head>
+<body>
+  <header class="header">
+    <div class="container header__bar">
+      <a class="brand" href="./index.html">
+        <img height="100" src="./assets/logo.png" alt="Logo-miniStore">
+      </a>
+
+      <div class="nav-wrapper">
+        <nav class="nav" aria-label="Principal">
+          <ul class="nav__list">
+            <li><a class="is-active" href="./index.html">Inicio</a></li>
+            <li><a href="./favorites.html">Favoritos</a></li>
+            <li><a class="is-active" href="./shopingCart.html" aria-label="Ir al carrito">Carrito</a></li>
+            <!-- <li id="nav-auth-link"><a href="./auth.html">Acceder</a></li> -->
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+<main class="container orders-container">
+  <h1>🧾 Historial de Compras</h1>
+
+  <section class="orders-actions" style="margin:.5rem 0 1rem;">
+    <a class="btn" href="./shopingCart.html">← Volver al carrito</a>
+    <button id="clear-orders" class="btn">Borrar historial</button>
+  </section>
+
+  <table class="orders-table" id="orders-table">
+    <thead>
+      <tr>
+        <th>Orden</th>
+        <th>Fecha</th>
+        <th class="col-items">Items</th>
+        <th class="col-total">Total</th>
+        <th class="col-actions">Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="orders-tbody">
+      <!-- JS inyecta filas y detalles -->
+    </tbody>
+  </table>
+
+  <div id="toast-root" aria-live="polite" aria-atomic="true"></div>
+</main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© 2025 MiniStore. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Tu script que pinta el historial (usa el que ya te pasé) -->
+  <script type="module" src="./js/ui/historial.js"></script>
+</body>
+</html>
