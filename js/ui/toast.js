@@ -1,7 +1,6 @@
 
 export function registerEventsToast() {
   
-
   document.getElementById('products').addEventListener('click', (e) => {
     const btn = e.target.closest('.add-to-cart');
     if (!btn) return;

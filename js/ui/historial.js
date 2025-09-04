@@ -1,4 +1,3 @@
-// Helpers mínimos
 const ORDERS_KEY = 'orders';
 const getOrders = () => { try { return JSON.parse(localStorage.getItem(ORDERS_KEY)) || []; } catch { return []; } };
 const setOrders = (orders) => localStorage.setItem(ORDERS_KEY, JSON.stringify(orders || []));

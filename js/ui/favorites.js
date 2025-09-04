@@ -36,10 +36,9 @@ function renderFavoriteProducts($container, list) {
 
   $container.innerHTML = html;
 }
-// =============================================================
 
 async function initFavorites() {
-  // 1. Mensaje de carga inicial
+  // Mensaje de carga inicial
   showLoading($products);
   console.log('Iniciando la página de favoritos...');
 
@@ -56,13 +55,12 @@ async function initFavorites() {
   }
 }
 
-//busqueda en favorites,
+// Busqueda en favorites.
 function applyFavoritesSearch() {
     const $searchInput = document.getElementById('search');
     const searchTerm = $searchInput.value.toLowerCase().trim();
 
     if (!searchTerm) {
-        // CORRECCIÓN: Llamar a la función y variable correctas
         renderFavoriteProducts($products, currentFavoriteProducts);
         return;
     }
@@ -72,10 +70,8 @@ function applyFavoritesSearch() {
     );
 
     if (filteredFavorites.length > 0) {
-        // CORRECCIÓN: Llamar a la función y variable correctas
         renderFavoriteProducts($products, filteredFavorites);
     } else {
-        // CORRECCIÓN: Usar la variable correcta
         showError($products, 'No se encontraron favoritos con ese nombre.');
     }
 }

@@ -1,6 +1,4 @@
-// js/ui/products.js
-// PARA QUÉ: dibujar tarjetas de productos en el HTML.
-
+// Dibujar tarjetas de productos en el HTML.
 export function showLoading($container) {
   if ($container) $container.innerHTML = `<p style="padding:1rem;">Cargando productos…</p>`;
 }
@@ -33,4 +31,3 @@ export function renderProducts($container, list) {
 
   $container.innerHTML = html;
 }
-    

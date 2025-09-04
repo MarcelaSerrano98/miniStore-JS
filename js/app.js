@@ -1,11 +1,8 @@
-// js/app.js
-// PARA QUÉ: conectar todo. Aquí “empieza” tu app.
-
+// Conexiones api
 import { fetchProducts } from './core/api.js';
 import { state, setProducts } from './core/state.js';
 import { showLoading, showError } from './ui/products.js';
 import { renderPage, registerPagerEvents } from './ui/pager.js';
-// import { registerEvents } from './ui/events.js';
 import { registerFilters, registerCategoryFilters } from './ui/filters.js';
 import { registerEventsToast } from './ui/toast.js';
 import { registerEventsDetails } from './ui/details.js';
@@ -19,26 +16,22 @@ const $sort = document.getElementById('sort');
 const $filter = document.getElementById('filter');
 
 async function init() {
-
-
-  // 1) Mensaje de carga
+  // Mensaje de carga
   showLoading($products);
   console.log('Iniciando la aplicación...');
 
   try {
-
     const data = await fetchProducts();
-
-    // 3) Guardar en el estado (deja page = 1 y view = products)
+    // Guardar en el estado.
     setProducts(data);
 
-    // 4) Registrar eventos de paginación
+    // Registra eventos de paginación
     registerCategoryFilters({ $filter, $products, $info, $prev,$next });
     registerFilters({ $sort, $products, $info, $prev,$next });
     registerPagerEvents($products, $info, $prev, $next);
 
 
-    // 5) Pintar la primera página
+    // Pintar la primera página
     renderPage($products, $info, $prev, $next);
   } catch (err) {
     console.error(err);

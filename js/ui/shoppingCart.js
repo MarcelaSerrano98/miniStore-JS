@@ -1,10 +1,8 @@
-// import {  } from "../";
 document.addEventListener('DOMContentLoaded', () => {
 
     const KEY = 'cart';
     const ORDERS_KEY = 'orders';
     const tbody = document.getElementById('cart-body');
-    // console.log(tsummary)
 
 
     // Helpers para leer/guardar
@@ -149,7 +147,7 @@ function finishPurchase() {
   const cart = getCart();
   if (!cart.length) return; // nada que comprar
 
-  // 1) Crear la orden y guardarla en el historial
+  // Crear la orden y guardarla en el historial
   const { totalItems, totalPrice } = calcTotals(cart);
   const orders = getOrders();
 
@@ -164,14 +162,13 @@ function finishPurchase() {
   orders.push(order);
   setOrders(orders);
 
-  // 2) Vaciar carrito
+  // Vaciar carrito
   setCart([]);
 
-  // 3) Feedback + refrescar UI
+  // Feedback + refrescar UI
   showPurchaseToast();
-  render(); // tu render() ya repinta tabla y totales (0)
+  render();
 }
-
 
   const summarySection = document.getElementById('cart-summary') || document.querySelector('.cart-summary');
   if (!summarySection) return;
@@ -179,7 +176,6 @@ function finishPurchase() {
   summarySection.addEventListener('click', (e) => {
     const btnFinish = e.target.closest('.btn'); // tu botón
     if (!btnFinish) return;
-    // showToast('Compra 🛒 registrada ✔️', { type: 'success' });
     finishPurchase();
   });
 
@@ -191,9 +187,6 @@ function finishPurchase() {
   render();
 }); 
 
-
-    
-// });
 
 
 

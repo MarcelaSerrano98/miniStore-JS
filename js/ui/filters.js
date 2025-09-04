@@ -1,4 +1,3 @@
-
 import { state } from '../core/state.js';
 import { renderPage } from './pager.js';
 
@@ -39,7 +38,7 @@ function applySort(option) {
     state.view.sort((a, b) => a.title.localeCompare(b.title));
   }
   if (option === 'title-desc') {
-    //Z → A
+    // Z → A
     state.view.sort((a, b) => b.title.localeCompare(a.title));
   }
 }
