@@ -4,6 +4,7 @@ import { fetchFavoriteProducts } from '../core/api.js';
 import { showLoading, showError } from './products.js';
 import { registerEventsDetails } from './details.js';
 import { setProducts } from '../core/state.js';
+import { registerEventsToast } from './toast.js';
 
 const $products = document.getElementById('products');
 
@@ -56,4 +57,5 @@ async function initFavorites() {
 document.addEventListener('DOMContentLoaded', () => {
   initFavorites();
   registerEventsDetails();
+  registerEventsToast()
 });
