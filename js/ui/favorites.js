@@ -8,6 +8,8 @@ import { registerEventsToast } from './toast.js';
 
 const $products = document.getElementById('products');
 
+let currentFavoriteProducts = [];
+
 function renderFavoriteProducts($container, list) {
   if (!$container) return;
 
@@ -44,6 +46,7 @@ async function initFavorites() {
   try {
 
     const favoriteProducts = await fetchFavoriteProducts();
+     currentFavoriteProducts = favoriteProducts;
     setProducts(favoriteProducts);
     renderFavoriteProducts($products, favoriteProducts);
 
@@ -53,9 +56,38 @@ async function initFavorites() {
   }
 }
 
+//busqueda en favorites,
+function applyFavoritesSearch() {
+    const $searchInput = document.getElementById('search');
+    const searchTerm = $searchInput.value.toLowerCase().trim();
+
+    if (!searchTerm) {
+        // CORRECCIÓN: Llamar a la función y variable correctas
+        renderFavoriteProducts($products, currentFavoriteProducts);
+        return;
+    }
+
+    const filteredFavorites = currentFavoriteProducts.filter(product =>
+        product.title.toLowerCase().includes(searchTerm)
+    );
+
+    if (filteredFavorites.length > 0) {
+        // CORRECCIÓN: Llamar a la función y variable correctas
+        renderFavoriteProducts($products, filteredFavorites);
+    } else {
+        // CORRECCIÓN: Usar la variable correcta
+        showError($products, 'No se encontraron favoritos con ese nombre.');
+    }
+}
+
 // Inicia la carga de la página y registra los eventos
 document.addEventListener('DOMContentLoaded', () => {
   initFavorites();
   registerEventsDetails();
   registerEventsToast()
+
+  const $searchInput = document.getElementById('search');
+    if ($searchInput) {
+        $searchInput.addEventListener('input', applyFavoritesSearch);
+    }
 });
