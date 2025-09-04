@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function summary() {
         const cart=getCart()
         const totalItems = cart.reduce((acc, item) => acc + (item.qty || 1), 0);
+        console.log(typeof totalItems)
         document.getElementById('total-items').textContent = totalItems
     }
 
@@ -20,11 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cart = getCart();
 
         const totalPirce= cart.reduce((acc, item) => acc + (item.price * (item.qty || 1) || 1), 0);
-        document.getElementById('total-price').textContent =totalPirce
-
-
-
-        l
+        document.getElementById('total-price').textContent =Math.round(totalPirce)
     }
 
     function render() {
@@ -57,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function removeFromCart(productId) {
         const cart = getCart();
         const updated = cart.filter(item => Number(item.id) !== Number(productId));
-        setCart(updated);        // ← guarda el carrito actualizado
+        setCart(updated);       
     }
     function updateQty(productId, delta) {
         const cart = getCart();
