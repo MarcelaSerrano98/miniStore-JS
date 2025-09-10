@@ -32,6 +32,7 @@ export function registerSearchEvents() {
     // Garantiza que se ejecuten despues de que el DOM esté listo.
     const $searchInput = document.getElementById('search');
     const $productsContainer = document.getElementById('products');
+    const $pagerInfo = document.getElementById('pager-info');
     const $prevButton = document.querySelector('.back');
     const $nextButton = document.querySelector('.Next');
 
