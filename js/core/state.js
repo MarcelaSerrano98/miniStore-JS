@@ -2,6 +2,7 @@
 export const state = {
   products: [],  // todos los productos de la API
   view: [],      // lo que se muestra (puede estar filtrado/ordenado)
+  page: 1,       // pagina actual
   pageSize: 6,   // productos por página
 };
 
