@@ -47,7 +47,12 @@
 
         <section id="cart-summary" class="cart-summary">
             <p>Total de productos: <span id="total-items"></span></p>
-            <p>Total a pagar: <strong id="total-price"></strong></p>
+            <p>Total a de la compra: <strong id="total-price"></strong></p>
+            <label for="descuento">Descuento</label>
+            <input type="number" name="descuento" id="descuento" placeholder="Ingrese el descuento">
+            <button id="calcular-descuento" class="btn-descuento btn--primary">Calcular descuento</button>
+            <p>Total a pagar: <strong id="total-prices"></strong></p>
+            
             <button class="btn btn--primary">Finalizar compra</button>
             <button class="btn-historial">Historial de compras</button>
 
